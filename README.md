@@ -1,18 +1,132 @@
 # 資料合併
-<div data-step="14" data-intro="<p>描述中 <i class='fa fa-clipboard'></i> 按鈕可協助你複製到剪貼簿，並貼到本機實驗。</p> <p>若題目有特殊的字元格式，那在範例輸入/輸出測資不適用複製貼上，請務必小心</p>">
-<p>假設有兩組已經排好序的資料，請撰寫一個函數，讀入這兩組資料，並將其合併為一個。</p>
-<p>函數需讀取兩個長度都是N，已經由大排到小的數值陣列(浮點數)，並將資料合併為一個由大排到小，長度是2N的數值陣列。</p>
-<p>函數的原型如下：</p>
-<pre><code><span class="fw-code-copy-button pure-button"><i class="fa fa-clipboard"></i></span><div id="highlighter_470548" class="syntaxhighlighter nogutter  "><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="keyword bold">void</code> <code class="plain">merge(</code><code class="color1 bold">double</code> <code class="plain">A[], </code><code class="color1 bold">int</code> <code class="plain">Alen, </code><code class="color1 bold">double</code> <code class="plain">B[], </code><code class="color1 bold">int</code> <code class="plain">Blen, </code><code class="color1 bold">double</code> <code class="plain">C[]);</code></div></div></td></tr></tbody></table></div></code></pre>
-<p>A和B分別為兩個數值由大到小，長度為Alen和Blen的陣列。C為長度Alen+Blen的陣列。你必須將合併結果放在C。故函式最後必須讓C也變成一個數值由大到小的陣列。</p>
-<p>本題會使用下面的程式碼和你實做的merge函式合併：</p>
-<pre><code><span class="fw-code-copy-button pure-button"><i class="fa fa-clipboard"></i></span><div id="highlighter_698223" class="syntaxhighlighter nogutter  "><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="preprocessor">#include&lt;stdio.h></code></div><div class="line number2 index1 alt1"><code class="preprocessor">#define MAXLEN 10</code></div><div class="line number3 index2 alt2"><code class="keyword bold">void</code> <code class="plain">merge(</code><code class="color1 bold">double</code> <code class="plain">A[], </code><code class="color1 bold">int</code> <code class="plain">Alen, </code><code class="color1 bold">double</code> <code class="plain">B[], </code><code class="color1 bold">int</code> <code class="plain">Blen, </code><code class="color1 bold">double</code> <code class="plain">C[]);</code></div><div class="line number4 index3 alt1"><code class="color1 bold">int</code> <code class="plain">main()</code></div><div class="line number5 index4 alt2"><code class="plain">{</code></div><div class="line number6 index5 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">double</code> <code class="plain">A[MAXLEN];</code></div><div class="line number7 index6 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">double</code> <code class="plain">B[MAXLEN];</code></div><div class="line number8 index7 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">double</code> <code class="plain">C[2*MAXLEN];</code></div><div class="line number9 index8 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;</code><code class="color1 bold">int</code> <code class="plain">lenA, lenB;</code></div><div class="line number10 index9 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;</code><code class="functions bold">scanf</code><code class="plain">(</code><code class="string">"%d%d"</code><code class="plain">,&lenA,&lenB);</code></div><div class="line number11 index10 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">for</code><code class="plain">(</code><code class="color1 bold">int</code> <code class="plain">i=0;i&lt;lenA;i++) {</code></div><div class="line number12 index11 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">scanf</code><code class="plain">(</code><code class="string">"%lf"</code><code class="plain">,&A[i]);</code></div><div class="line number13 index12 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></div><div class="line number14 index13 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">for</code><code class="plain">(</code><code class="color1 bold">int</code> <code class="plain">i=0;i&lt;lenB;i++) {</code></div><div class="line number15 index14 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">scanf</code><code class="plain">(</code><code class="string">"%lf"</code><code class="plain">,&B[i]);</code></div><div class="line number16 index15 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></div><div class="line number17 index16 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain">merge(A,lenA,B,lenB,C);</code></div><div class="line number18 index17 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">for</code><code class="plain">(</code><code class="color1 bold">int</code> <code class="plain">i=0;i&lt;lenA+lenB;i++) {</code></div><div class="line number19 index18 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</code><code class="functions bold">printf</code><code class="plain">(</code><code class="string">"%f\n"</code><code class="plain">,C[i]);</code></div><div class="line number20 index19 alt1"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;</code><code class="plain">}</code></div><div class="line number21 index20 alt2"><code class="undefined spaces">&nbsp;&nbsp;&nbsp;</code><code class="keyword bold">return</code> <code class="plain">0;</code></div><div class="line number22 index21 alt1"><code class="plain">}</code></div></div></td></tr></tbody></table></div></code></pre>
-<p>由上面的main()函式可知，本題輸入為兩組浮點數. 測試資料中，前面lenA個和後面lenB個已經分別由大到小排好序. 輸出是lenA+lenB個由大到小排好順序的浮點數。</p>
-<p>例如，如果輸入是：</p>
-<h3 class="content-subhead">Input Example 1</h3><pre><code><span class="fw-code-copy-button pure-button"><i class="fa fa-clipboard"></i></span><div id="highlighter_921217" class="syntaxhighlighter nogutter  "><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain">10 10</code></div><div class="line number2 index1 alt1"><code class="plain">10.0 9.0 8.0 7.0 6.0 5.0 4.0 3.0 2.0 1.0</code></div><div class="line number3 index2 alt2"><code class="plain">20.0 19.0 18.0 17.0 16.0 15.0 14.0 13.0 12.0 11.0</code></div></div></td></tr></tbody></table></div></code></pre>
-<p>輸出為：</p>
-<h3 class="content-subhead">Output Example 1</h3><pre><code><span class="fw-code-copy-button pure-button"><i class="fa fa-clipboard"></i></span><div id="highlighter_778022" class="syntaxhighlighter nogutter  "><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain">20.000000</code></div><div class="line number2 index1 alt1"><code class="plain">19.000000</code></div><div class="line number3 index2 alt2"><code class="plain">18.000000</code></div><div class="line number4 index3 alt1"><code class="plain">17.000000</code></div><div class="line number5 index4 alt2"><code class="plain">16.000000</code></div><div class="line number6 index5 alt1"><code class="plain">15.000000</code></div><div class="line number7 index6 alt2"><code class="plain">14.000000</code></div><div class="line number8 index7 alt1"><code class="plain">13.000000</code></div><div class="line number9 index8 alt2"><code class="plain">12.000000</code></div><div class="line number10 index9 alt1"><code class="plain">11.000000</code></div><div class="line number11 index10 alt2"><code class="plain">10.000000</code></div><div class="line number12 index11 alt1"><code class="plain">9.000000</code></div><div class="line number13 index12 alt2"><code class="plain">8.000000</code></div><div class="line number14 index13 alt1"><code class="plain">7.000000</code></div><div class="line number15 index14 alt2"><code class="plain">6.000000</code></div><div class="line number16 index15 alt1"><code class="plain">5.000000</code></div><div class="line number17 index16 alt2"><code class="plain">4.000000</code></div><div class="line number18 index17 alt1"><code class="plain">3.000000</code></div><div class="line number19 index18 alt2"><code class="plain">2.000000</code></div><div class="line number20 index19 alt1"><code class="plain">1.000000</code></div></div></td></tr></tbody></table></div></code></pre>
-<p>而如果輸入是：</p>
-<h3 class="content-subhead">Input Example 2</h3><pre><code><span class="fw-code-copy-button pure-button"><i class="fa fa-clipboard"></i></span><div id="highlighter_89232" class="syntaxhighlighter nogutter  "><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain">7 6</code></div><div class="line number2 index1 alt1"><code class="plain">2 1 0 -1 -2 -4 -8</code></div><div class="line number3 index2 alt2"><code class="plain">-6 -7 -7 -8 -9 -10</code></div></div></td></tr></tbody></table></div></code></pre>
-<p>則輸出為：</p>
-<h3 class="content-subhead">Output Example 2</h3><pre><code><span class="fw-code-copy-button pure-button"><i class="fa fa-clipboard"></i></span><div id="highlighter_539080" class="syntaxhighlighter nogutter  "><table border="0" cellpadding="0" cellspacing="0"><tbody><tr><td class="code"><div class="container"><div class="line number1 index0 alt2"><code class="plain">2.000000</code></div><div class="line number2 index1 alt1"><code class="plain">1.000000</code></div><div class="line number3 index2 alt2"><code class="plain">0.000000</code></div><div class="line number4 index3 alt1"><code class="plain">-1.000000</code></div><div class="line number5 index4 alt2"><code class="plain">-2.000000</code></div><div class="line number6 index5 alt1"><code class="plain">-4.000000</code></div><div class="line number7 index6 alt2"><code class="plain">-6.000000</code></div><div class="line number8 index7 alt1"><code class="plain">-7.000000</code></div><div class="line number9 index8 alt2"><code class="plain">-7.000000</code></div><div class="line number10 index9 alt1"><code class="plain">-8.000000</code></div><div class="line number11 index10 alt2"><code class="plain">-8.000000</code></div><div class="line number12 index11 alt1"><code class="plain">-9.000000</code></div><div class="line number13 index12 alt2"><code class="plain">-10.000000</code></div></div></td></tr></tbody></table></div></code></pre></div>
+
+## 題目描述
+
+假設有兩組已經排好序的資料，請撰寫一個函數，讀入這兩組資料，並將其合併為一個由大排到小的數值陣列。
+
+### 函式原型
+
+```c
+void merge(double A[], int Alen, double B[], int Blen, double C[]);
+```
+
+A 和 B 分別為兩個數值，由大到小排序，長度為 Alen 和 Blen 的陣列。
+C 是一個長度為 Alen + Blen 的陣列，您需要將合併後的結果存入這個陣列，並保持由大到小排序。
+
+解題步驟
+讀取兩組浮點數陣列 A 和 B，並將它們合併成一個新的陣列 C。
+在合併過程中保持排序，確保最終陣列 C 仍為由大到小排列。
+函數的 main 程式碼將提供必要的測試資料。
+
+完整程式碼
+
+```c
+#include <stdio.h>
+#define MAXLEN 10
+
+void merge(double A[], int Alen, double B[], int Blen, double C[]) {
+    int i = 0, j = 0, k = 0;
+
+    // 合併兩個排序的陣列
+    while (i < Alen && j < Blen) {
+        if (A[i] > B[j]) {
+            C[k++] = A[i++];
+        } else {
+            C[k++] = B[j++];
+        }
+    }
+
+    // 把 A 中剩餘的元素加入 C
+    while (i < Alen) {
+        C[k++] = A[i++];
+    }
+
+    // 把 B 中剩餘的元素加入 C
+    while (j < Blen) {
+        C[k++] = B[j++];
+    }
+}
+
+int main() {
+    double A[MAXLEN], B[MAXLEN], C[2*MAXLEN];
+    int lenA, lenB;
+
+    // 讀入兩組資料
+    scanf("%d %d", &lenA, &lenB);
+    for (int i = 0; i < lenA; i++) {
+        scanf("%lf", &A[i]);
+    }
+    for (int i = 0; i < lenB; i++) {
+        scanf("%lf", &B[i]);
+    }
+
+    // 合併資料
+    merge(A, lenA, B, lenB, C);
+
+    // 輸出結果
+    for (int i = 0; i < lenA + lenB; i++) {
+        printf("%f\n", C[i]);
+    }
+
+    return 0;
+}
+```
+
+輸入範例
+```text
+10 10
+10.0 9.0 8.0 7.0 6.0 5.0 4.0 3.0 2.0 1.0
+20.0 19.0 18.0 17.0 16.0 15.0 14.0 13.0 12.0 11.0
+```
+輸出範例
+```text
+20.000000
+19.000000
+18.000000
+17.000000
+16.000000
+15.000000
+14.000000
+13.000000
+12.000000
+11.000000
+10.000000
+9.000000
+8.000000
+7.000000
+6.000000
+5.000000
+4.000000
+3.000000
+2.000000
+1.000000
+```
+
+輸入範例2
+```text
+7 6
+2 1 0 -1 -2 -4 -8
+-6 -7 -7 -8 -9 -10
+```
+
+輸出範例
+```text
+2.000000
+1.000000
+0.000000
+-1.000000
+-2.000000
+-4.000000
+-6.000000
+-7.000000
+-7.000000
+-8.000000
+-8.000000
+-9.000000
+-10.000000
+```
+
+解題思路
+我們使用兩個指標 i 和 j 來遍歷陣列 A 和 B，依據數字大小將元素逐個放入新的陣列 C 中，並保持排序。
+如果某個陣列已經遍歷完，則將另一個陣列剩餘的元素直接加入 C。
+最終，合併後的陣列 C 即為由大到小排序的結果。
