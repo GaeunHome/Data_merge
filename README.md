@@ -2,8 +2,6 @@
 
 [![C](https://img.shields.io/badge/C-Language-A8B9CC)](https://en.wikipedia.org/wiki/C_(programming_language))
 
-111學年度第1學期 [MA109A]「計算機概論」 - 40208「資料合併」
-
 ## 題目描述
 
 假設有兩組已經排好序的資料，請撰寫一個函數，讀入這兩組資料，並將其合併為一個由大排到小的數值陣列。
